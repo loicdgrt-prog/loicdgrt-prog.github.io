@@ -1,69 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr" class="scroll-smooth">
+
+<!-- Head -->
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Loïc Dgrt | Ingénieur Systèmes & Réseaux → Développeur Full-Stack</title>
-  <meta name="description" content="Ingénieur systèmes & réseaux en transition active vers le développement full-stack"/>
-  
-  <!-- Tailwind CDN (zéro install) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'system-ui'] }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loïc Dgrt | Ingénieur Systèmes & Réseaux → Développeur Full-Stack</title>
+    <meta name="description"
+        content="Ingénieur systèmes & réseaux en transition active vers le développement full-stack" />
+
+    <!-- Tailwind CDN (zéro install) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'system-ui'] }
+                }
+            }
         }
-      }
-    }
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
-  <!-- Header -->
-  <header class="bg-white dark:bg-gray-800 shadow-sm">
-    <div class="max-w-5xl mx-auto px-6 py-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Loïc Dgrt</h1>
-      <p class="text-xl text-blue-600 dark:text-blue-400">Ingénieur Systèmes & Réseaux → Développeur Full-Stack</p>
-      <p class="mt-4 text-lg">Bac+4 Administrateur Systèmes et Réseaux | Sécurité · Infra · Automatisation</p>
-    </div>
-  </header>
 
-  <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-6 py-16 text-center">
-    <img src="https://avatars.githubusercontent.com/u/236276248?s=400&u=bbaeac21bc53ebc560d9f62c782cf720dce9e85d&v=4" alt="Loïc" class="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-blue-600"/>
-    <p class="text-xl leading-relaxed max-w-3xl mx-auto">
-      De l’infrastructure aux applications.<br/>
-      Je capitalise sur 5+ ans d’expérience systèmes, réseaux et sécurité pour concevoir des logiciels robustes, sécurisés et scalables.
-    </p>
-    <div class="mt-8 flex gap-4 justify-center">
-      <a href="https://github.com/loicdgrt-prog" class="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800">GitHub</a>
-      <a href="mailto:loic.dgrt@gmail.com" class="px-6 py-3 border border-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg fixed top-0 w-full z-50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Loïc Dgrt</a>
+            <div class="space-x-8 text-lg">
+                <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Accueil</a>
+                <a href="/cv.html" class="hover:text-blue-600 dark:hover:text-blue-400">CV & Compétences</a>
+                <a href="https://github.com/loicdgrt-prog" target="_blank"
+                    class="hover:text-blue-600 dark:hover:text-blue-400">GitHub</a>
+            </div>
+        </div>
+    </nav>
+    <div class="pt-20"></div> <!-- compenser le menu fixe -->
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="max-w-5xl mx-auto px-6 py-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Loïc Dgrt</h1>
+            <p class="text-xl text-blue-600 dark:text-blue-400">Ingénieur Systèmes & Réseaux → Développeur Full-Stack
+            </p>
+            <p class="mt-4 text-lg">Bac+4 Administrateur Systèmes et Réseaux | Sécurité · Infra · Automatisation</p>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="max-w-5xl mx-auto px-6 py-16 text-center">
+        <img src="https://avatars.githubusercontent.com/u/236276248?s=400&u=bbaeac21bc53ebc560d9f62c782cf720dce9e85d&v=4"
+            alt="Loïc" class="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-blue-600" />
+        <p class="text-xl leading-relaxed max-w-3xl mx-auto">
+            De l’infrastructure aux applications.<br />
+            Je capitalise sur 5+ ans d’expérience systèmes, réseaux et sécurité pour concevoir des logiciels robustes,
+            sécurisés et scalables.
+        </p>
+        <div class="mt-8 flex gap-4 justify-center">
+            <a href="https://github.com/loicdgrt-prog"
+                class="px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800">GitHub</a>
+            <a href="mailto:loic.dgrt@gmail.com"
+                class="px-6 py-3 border border-gray-400 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Contact</a>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section class="bg-gray-100 dark:bg-gray-800 py-16">
+        <div class="max-w-5xl mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-10 text-center">Projets en cours</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow">
+                    <h3 class="text-2xl font-semibold mb-3">Outil de sauvegarde cloud maison</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Python · OAuth2 · OneDrive API · Scheduling · Encryption
+                        en cours de refonte complète</p>
+                </div>
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow">
+                    <h3 class="text-2xl font-semibold mb-3">Serveur Linux personnel → futur serveur web</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Ubuntu Server · Nginx · Docker · Certbot · CI/CD</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Call to action vers CV -->
+  <section class="py-20 text-center bg-blue-600 text-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-6">Intéressé par mon profil ?</h2>
+      <p class="text-xl mb-8">Découvrez mes compétences détaillées et mon parcours complet</p>
+      <a href="/cv.html" class="px-8 py-4 bg-white text-blue-600 rounded-lg text-xl font-bold hover:bg-gray-100">
+        Voir mon CV complet →
+      </a>
     </div>
   </section>
 
-  <!-- Projets -->
-  <section class="bg-gray-100 dark:bg-gray-800 py-16">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-10 text-center">Projets en cours</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow">
-          <h3 class="text-2xl font-semibold mb-3">Outil de sauvegarde cloud maison</h3>
-          <p class="text-gray-600 dark:text-gray-400">Python · OAuth2 · OneDrive API · Scheduling · Encryption en cours de refonte complète</p>
-        </div>
-        <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow">
-          <h3 class="text-2xl font-semibold mb-3">Serveur Linux personnel → futur serveur web</h3>
-          <p class="text-gray-600 dark:text-gray-400">Ubuntu Server · Nginx · Docker · Certbot · CI/CD</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Footer -->
-  <footer class="text-center py-8 text-gray-500">
-    © 2025 Loïc Dgrt – Tous droits réservés
-  </footer>
+    <!-- Footer -->
+    <footer class="text-center py-8 text-gray-500">
+        © 2025 Loïc Dgrt – Tous droits réservés
+    </footer>
 </body>
+
 </html>
