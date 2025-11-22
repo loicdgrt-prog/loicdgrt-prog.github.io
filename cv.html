@@ -1,132 +1,183 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-  <!-- MÊME HEAD QUE INDEX -->
-  <title>CV Loïc Dgrt | Compétences & Parcours</title>
-  <meta name="description" content="CV détaillé - Ingénieur systèmes & réseaux en transition full-stack">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui'] } } } }
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- MÊME HEAD QUE INDEX -->
+    <title>CV Loïc Dgrt | Compétences & Parcours</title>
+    <meta name="description" content="CV détaillé - Ingénieur systèmes & réseaux en transition full-stack">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { fontFamily: { sans: ['Inter', 'system-ui'] } } } }
+    </script>
+
+    <!-- Animate On Scroll (AOS) – animations au scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Heroicons pour icônes (ou Font Awesome si tu préfères) -->
+    <script src="https://cdn.jsdelivr.net/npm/heroicons@2.0.18/24/outline/index.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
 
-  <!-- MENU NAV (même code que index.html) -->
+    <!-- MENU NAV (même code que index.html) -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg fixed top-0 w-full z-50 transition-all">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Loïc DEGROOTE</a>
+            <div class="flex items-center space-x-8">
+                <a href="/" class="hover:text-blue-600 dark:hover:text-blue-400">Accueil</a>
+                <a href="/cv.html" class="hover:text-blue-600 dark:hover:text-blue-400">CV & Compétences</a>
+                <a href="https://github.com/loicdgrt-prog" target="_blank"
+                    class="hover:text-blue-600 dark:hover:text-blue-400">GitHub</a>
 
-  <div class="max-w-6xl mx-auto px-6 py-20">
-    <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">CV & Compétences détaillées</h1>
+                <!-- Toggle Dark/Light -->
+                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-    <!-- Boutons CV -->
-    <div class="text-center mb-12">
-      <a href="/CV_Loic_Dgrt.pdf" target="_blank" class="px-8 py-4 bg-blue-600 text-white rounded-lg mr-6 text-lg hover:bg-blue-700">
-        Aperçu CV (nouvel onglet)
-      </a>
-      <a href="/CV_Loic_Dgrt.pdf" download class="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg text-lg hover:bg-blue-50">
-        Télécharger CV ↓
-      </a>
-    </div>
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        });
+    </script>
 
-    <!-- Compétences détaillées -->
-    <section class="py-16 bg-gray-100 dark:bg-gray-800">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Compétences & Expertises</h2>
+    <div class="max-w-6xl mx-auto px-6 py-20">
+        <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">CV & Compétences détaillées</h1>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Colonne 1 -->
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Infrastructure /
-                            Services</h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>AD / DNS / DHCP / DHCP / IIS / Veeam</li>
-                            <li>Office 365 / Zimbra / Bacula / Apache</li>
-                            <li>Travail à l’international (PME 200 à 400 salariés)</li>
-                        </ul>
+        <!-- Boutons CV -->
+        <div class="text-center mb-12">
+            <a href="/CV_Loic_Dgrt.pdf" target="_blank"
+                class="px-8 py-4 bg-blue-600 text-white rounded-lg mr-6 text-lg hover:bg-blue-700">
+                Aperçu CV (nouvel onglet)
+            </a>
+            <a href="/CV_Loic_Dgrt.pdf" download
+                class="px-8 py-4 border-2 border-blue-600 text-blue-600 rounded-lg text-lg hover:bg-blue-50">
+                Télécharger CV ↓
+            </a>
+        </div>
+
+        <!-- Compétences détaillées -->
+        <section class="py-16 bg-gray-100 dark:bg-gray-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Compétences & Expertises</h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Colonne 1 -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Infrastructure /
+                                Services</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>AD / DNS / DHCP / DHCP / IIS / Veeam</li>
+                                <li>Office 365 / Zimbra / Bacula / Apache</li>
+                                <li>Travail à l’international (PME 200 à 400 salariés)</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Supervision</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Expertise : Nagios/EON</li>
+                                <li>Confirmé : Centreon</li>
+                                <li>Débutant : PRTG / Zabbix</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Cybersécurité</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Solution de détection de vulnérabilités et des bonnes pratiques</li>
+                                <li>Confirmé : Cyberwatch / Nessus</li>
+                                <li>Débutant : Qualys / Rapid7</li>
+                                <li>Gestion des authentifications sécurisées & PSSI</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Administration
+                                systèmes
+                            </h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Expertise : Windows Server & Desktop</li>
+                                <li>Confirmé : Linux</li>
+                                <li>Débutant : MacOS</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Supervision</h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>Expertise : Nagios/EON</li>
-                            <li>Confirmé : Centreon</li>
-                            <li>Débutant : PRTG / Zabbix</li>
-                        </ul>
-                    </div>
+                    <!-- Colonne 2 -->
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Virtualisation</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Expertise : Microsoft Hyper-V</li>
+                                <li>Confirmé : VMware</li>
+                                <li>Débutant : Proxmox</li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Cybersécurité</h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>Solution de détection de vulnérabilités et des bonnes pratiques</li>
-                            <li>Confirmé : Cyberwatch / Nessus</li>
-                            <li>Débutant : Qualys / Rapid7</li>
-                            <li>Gestion des authentifications sécurisées & PSSI</li>
-                        </ul>
-                    </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Réseaux</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Équipements : Routeurs, switch, firewall, VPN</li>
+                                <li>Protocoles : TCP/IP, Ethernet, LAN, WAN…</li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Administration systèmes
-                        </h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>Expertise : Windows Server & Desktop</li>
-                            <li>Confirmé : Linux</li>
-                            <li>Débutant : MacOS</li>
-                        </ul>
-                    </div>
-                </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Gestion de projet &
+                                Relationnel</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Audit, Administration et supervision des architectures internes et clients</li>
+                            </ul>
+                        </div>
 
-                <!-- Colonne 2 -->
-                <div class="space-y-8">
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Virtualisation</h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>Expertise : Microsoft Hyper-V</li>
-                            <li>Confirmé : VMware</li>
-                            <li>Débutant : Proxmox</li>
-                        </ul>
-                    </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Infrastructure Cloud
+                            </h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>Expertise : OVH</li>
+                                <li>Débutant : Microsoft Azure / AWS / Oracle Cloud Infrastructure (OCI)</li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Réseaux</h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>Équipements : Routeurs, switch, firewall, VPN</li>
-                            <li>Protocoles : TCP/IP, Ethernet, LAN, WAN…</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Gestion de projet &
-                            Relationnel</h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>Audit, Administration et supervision des architectures internes et clients</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Infrastructure Cloud
-                        </h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>Expertise : OVH</li>
-                            <li>Débutant : Microsoft Azure / AWS / Oracle Cloud Infrastructure (OCI)</li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Certifications</h3>
-                        <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
-                            <li>CCNA 1 v6 : Initiation au réseau</li>
-                            <li>CCNA 2 et 3 v6 : Routage et commutation avancées</li>
-                            <li>Formation : BSB Manœuvre (électrique)</li>
-                        </ul>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-blue-600 dark:text-blue-400">Certifications</h3>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>CCNA 1 v6 : Initiation au réseau</li>
+                                <li>CCNA 2 et 3 v6 : Routage et commutation avancées</li>
+                                <li>Formation : BSB Manœuvre (électrique)</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-  </div>
+        </section>
+    </div>
 
-  <footer class="text-center py-8 text-gray-500 mt-20">
-    © 2025 Loïc Dgrt – <a href="/" class="underline">Retour à l'accueil</a>
-  </footer>
+    <footer class="text-center py-8 text-gray-500 mt-20">
+        © 2025 Loïc DEGROOTE – <a href="/" class="underline">Retour à l'accueil</a>
+    </footer>
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
 </body>
+
 </html>
