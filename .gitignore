@@ -1,2 +1,16 @@
-# VS Code – secrets et prefs perso
-.vscode/settings.json
+# VS Code / Visual Studio
+.vscode/
+.vs/
+*.vsidx
+*.db
+*.sqlite
+*.json.user
+
+# Logs et cache Python (quand tu feras du Python dans le même repo)
+__pycache__/
+*.pyc
+venv/
+
+# Fichiers temporaires
+.DS_Store
+Thumbs.db
