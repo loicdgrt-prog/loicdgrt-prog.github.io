@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet : Home Assistant Soft | Loïc DGRT</title>
+    <meta name="description" content="Projet de logiciel de sauvegarde multi-cloud standalone par Loïc DEGROOTE">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <!-- Animate On Scroll (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen">
+
+    <!-- Menu Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg fixed top-0 w-full z-50 transition-all">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="../../index.html" class="text-2xl font-bold text-blue-600 dark:text-blue-400">Loïc DEGROOTE</a>
+            <div class="flex items-center space-x-8">
+                <a href="../../index.html" class="hover:text-blue-600 dark:hover:text-blue-400">Accueil</a>
+                <a href="../profil.html" class="hover:text-blue-600 dark:hover:text-blue-400">Profil & Compétences</a>
+                <a href="./projects.html"
+                    class="text-blue-600 dark:text-blue-400 font-bold underline underline-offset-4">Projets</a>
+                <a href="https://github.com/loicdgrt-prog" target="_blank"
+                    class="hover:text-blue-600 dark:hover:text-blue-400">GitHub</a>
+                <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                    <svg class="w-6 h-6 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+        toggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+        });
+    </script>
+
+    <div class="pt-24"></div>
+
+    <!-- En-tête du projet -->
+    <header class="max-w-4xl mx-auto px-6 py-12 text-center" data-aos="fade-down">
+        <nav class="flex justify-center items-center space-x-2 text-gray-500 dark:text-gray-400 text-sm mb-6">
+            <ol class="list-none p-0 inline-flex">
+                <li><a href="../../index.html" class="hover:text-blue-600 dark:hover:text-blue-400">Accueil</a></li>
+                <li>
+                    <span class="text-gray-400 dark:text-gray-600">/</span>
+                </li>
+                <li><a href="./projects.html" class="hover:text-blue-600 dark:hover:text-blue-400">Projets</a></li>
+                <li>
+                    <span class="text-gray-400 dark:text-gray-600">/</span>
+                </li>
+                <li>
+                    <span class="text-blue-600 dark:text-blue-400 font-semibold" aria-current="page">Home Assistant
+                        Soft</span>
+                </li>
+            </ol>
+        </nav>
+
+        <h1
+            class="text-4xl md:text-6xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-6">
+            Home Assistant Soft (HAS)
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+            Le Guide de la Sauvegarde Sécurisée (Bout en Bout) et de la Gestion Documentaire Intelligente.
+        </p>
+        <div class="flex flex-wrap justify-center gap-3 mb-8">
+            <span
+                class="px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-100 rounded-full text-sm font-semibold">Python
+                / GUI</span>
+            <span
+                class="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-100 rounded-full text-sm font-semibold">Google
+                Drive</span>
+            <span
+                class="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-100 rounded-full text-sm font-semibold">AES-256</span>
+        </div>
+    </header>
+
+    <!-- Contenu Principal -->
+    <main class="max-w-4xl mx-auto px-6 pb-20">
+        <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-8 md:p-12" data-aos="fade-up">
+
+            <section class="mb-12">
+                <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-4 flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Le Cycle de Données : Du Local au Cloud
+                </h3>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-gray-900 dark:text-white flex items-center gap-2">
+                            <span class="text-2xl">🔒</span> Chiffrement Absolu (De bout en bout)
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            Les fichiers sont chiffrés en <b>AES-256</b> en local avant tout transfert, garantissant que
+                            seul l'utilisateur possède la clé. Google ne reçoit que des blocs illisibles (.enc).
+                        </p>
+                    </div>
+                    <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-2xl">
+                        <h4 class="font-bold text-lg mb-2 text-gray-900 dark:text-white flex items-center gap-2">
+                            <span class="text-2xl">🛡️</span> Transit Sécurisé (OAuth2)
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300">
+                            L'application utilise le scope de sécurité maximal Google <code>drive.file</code>. Elle n'a
+                            la permission de lister et d'accéder **qu'aux fichiers qu'elle a elle-même créés**.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mb-12" data-aos="fade-up">
+                <h3 class="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-6 flex items-center gap-3">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                        </path>
+                    </svg>
+                    Robustesse et Sécurité Système
+                </h3>
+                <ul class="space-y-6">
+                    <li class="flex items-start">
+                        <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-lg mr-4 mt-1">
+                            <svg class="w-6 h-6 text-blue-600 dark:text-blue-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong class="text-gray-900 dark:text-gray-100 text-lg">Intégration Windows
+                                Keyring</strong>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">La clé maître AES n'est sauvegardée dans
+                                aucun fichier. Elle est confiée et protégée nativement par le <b>Gestionnaire
+                                    d'Identifiants Windows</b> (Windows Credential Manager).</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-lg mr-4 mt-1">
+                            <svg class="w-6 h-6 text-purple-600 dark:text-purple-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong class="text-gray-900 dark:text-gray-100 text-lg">Versioning Intelligent "Max
+                                2"</strong>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">Nettoyage asynchrone sur Google Drive :
+                                l'application garde automatiquement uniquement les <b>2 versions les plus récentes</b>
+                                d'un même fichier pour éviter l'engorgement du stockage cloud.</p>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="bg-green-100 dark:bg-green-900 p-3 rounded-lg mr-4 mt-1">
+                            <svg class="w-6 h-6 text-green-600 dark:text-green-300" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong class="text-gray-900 dark:text-gray-100 text-lg">Monitoring Réseau
+                                Asynchrone</strong>
+                            <p class="text-gray-600 dark:text-gray-400 mt-1">Un thread en arrière-plan vérifie la
+                                résolution DNS de Google <b>toutes les 30 secondes</b>. Si la connexion est perdue, les
+                                boutons d'actions sont verrouillés avec sécurité pour empêcher les crashs d'API.</p>
+                        </div>
+                    </li>
+                </ul>
+
+                <h4
+                    class="text-xl font-bold text-gray-800 dark:text-gray-200 mt-10 mb-4 border-b pb-2 dark:border-gray-700">
+                    Architecture Hiérarchique Locale</h4>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="border border-gray-200 dark:border-gray-700 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-4xl block mb-2">📁</span>
+                        <strong class="block text-blue-600 dark:text-blue-400 mb-1">Dossier "Files"</strong>
+                        <p class="text-sm text-gray-500">L'espace de restitution final de vos fichiers déchiffrés (En
+                            clair).</p>
+                    </div>
+                    <div
+                        class="border border-gray-200 dark:border-gray-700 p-4 rounded-xl text-center shadow-sm bg-orange-50 dark:bg-orange-900/10">
+                        <span class="text-4xl block mb-2">🛡️</span>
+                        <strong class="block text-orange-600 dark:text-orange-400 mb-1">Dossier "Sas"</strong>
+                        <p class="text-sm text-gray-500">Zone de quarantaine locale. Accueille vos archives `.enc`
+                            brutes rapatriées du Cloud.</p>
+                    </div>
+                    <div
+                        class="border border-gray-200 dark:border-gray-700 p-4 rounded-xl text-center shadow-sm bg-purple-50 dark:bg-purple-900/10">
+                        <span class="text-4xl block mb-2">📦</span>
+                        <strong class="block text-purple-600 dark:text-purple-400 mb-1">Archivage "Back-Sas"</strong>
+                        <p class="text-sm text-gray-500">Archive invisible des fichiers "Sas" déchiffrés. <b>Rétention
+                                automatique purgée au bout de 30 jours</b>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mt-12 pt-8 border-t border-gray-200 dark:border-gray-700"
+                data-aos="fade-up">
+                <button onclick="promptSoftwareKey()"
+                    class="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold shadow-lg hover:shadow-green-500/30 hover:-translate-y-1 transition-all">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Télécharger Windows (.exe)
+                </button>
+
+                <a href="./projects.html"
+                    class="inline-flex items-center justify-center px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 font-bold transition-all">
+                    Retour aux projets
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal Téléchargement / Clé -->
+    <div id="download-modal"
+        class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div
+            class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl max-w-sm w-full transform scale-95 opacity-0 transition-all duration-300 relative">
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <h3 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Clé Logiciel</h3>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mb-6">Entrez votre code alphanumérique pour déverrouiller
+                le téléchargement (ex: ABCD-1234-EFGH).</p>
+            <input type="text" id="softwareKeyInput"
+                class="w-full px-4 py-3 bg-gray-100 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none mb-4 dark:text-white text-center font-mono uppercase tracking-widest placeholder-gray-400"
+                placeholder="XXXX-XXXX-XXXX" maxlength="14" oninput="formatKey(event)">
+            <p id="keyErrorMsg" class="text-red-500 text-sm font-semibold hidden mb-4 text-center">Clé invalide ou
+                expirée.</p>
+            <button onclick="verifyKeyAndDownload()"
+                class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition">
+                Valider & Télécharger
+            </button>
+        </div>
+    </div>
+
+    <!-- Script de Vérification -->
+    <script>
+        const modal = document.getElementById('download-modal');
+        const modalContent = modal.querySelector('div');
+        const keyInput = document.getElementById('softwareKeyInput');
+        const errorMsg = document.getElementById('keyErrorMsg');
+
+        function promptSoftwareKey() {
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+                keyInput.focus();
+            }, 10);
+        }
+
+        function closeModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                keyInput.value = '';
+                errorMsg.classList.add('hidden');
+            }, 300);
+        }
+
+        // Auto-format format: XXXX-XXXX-XXXX
+        function formatKey(e) {
+            let val = e.target.value.replace(/[^A-Za-z0-9]/g, '').toUpperCase();
+            if (val.length > 4) val = val.slice(0, 4) + '-' + val.slice(4);
+            if (val.length > 9) val = val.slice(0, 9) + '-' + val.slice(9);
+            e.target.value = val;
+        }
+
+        async function verifyKeyAndDownload() {
+            const enteredKey = keyInput.value.trim();
+            errorMsg.classList.add('hidden');
+
+            // Animation de chargement sur le bouton
+            const btn = document.querySelector('button[onclick="verifyKeyAndDownload()"]');
+            const originalText = btn.innerText;
+            btn.innerText = "Vérification...";
+            btn.disabled = true;
+
+            try {
+                // Appel au Brain Cloudflare Worker
+                const response = await fetch('https://has-api-keys.loic-dgrt.workers.dev/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ key: enteredKey })
+                });
+
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    // La clé est valide, le Worker nous renvoie l'URL secrète de téléchargement
+                    window.location.href = data.url;
+
+                    // Fermeture et reset
+                    closeModal();
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                } else {
+                    // Échec (Mauvaise clé ou autre erreur)
+                    errorMsg.textContent = data.error || "Clé invalide ou expirée.";
+                    errorMsg.classList.remove('hidden');
+
+                    // Animation d'erreur (Shake)
+                    modalContent.classList.add('animate-pulse');
+                    setTimeout(() => modalContent.classList.remove('animate-pulse'), 300);
+
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                }
+            } catch (error) {
+                console.error("Erreur API:", error);
+                errorMsg.textContent = "Erreur de connexion au serveur de clés.";
+                errorMsg.classList.remove('hidden');
+
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }
+        }
+    </script>
+
+    </div>
+    </main>
+
+    <footer class="text-center py-8 text-gray-500 border-t border-gray-200 dark:border-gray-800">
+        © 2025 Loïc DEGROOTE – <a href="../../index.html" class="hover:text-blue-600 transition">Retour à l'accueil</a>
+    </footer>
+
+    <script>
+        AOS.init({ duration: 800, once: true });
+    </script>
+</body>
+
+</html>
