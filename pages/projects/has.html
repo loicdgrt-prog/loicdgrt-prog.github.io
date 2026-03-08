@@ -354,7 +354,7 @@
 
             } catch (error) {
                 console.error("Erreur API:", error);
-                errorMsg.textContent = "Erreur de connexion au serveur de clés.";
+                errorMsg.textContent = "Erreur système : " + error.message;
                 errorMsg.classList.remove('hidden');
 
                 btn.innerText = originalText;
